@@ -14,7 +14,7 @@ class AudioFormatter:
         data = np.zeros((128, len(frames), 1), dtype=np.uint8)
 
         for i in range(0, len(frames)):
-            data[:, i] = fft(frames[i])
+            data[:, i] = fft()
 
         result = Image.fromarray(data)
 

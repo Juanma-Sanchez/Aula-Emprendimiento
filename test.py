@@ -1,6 +1,9 @@
-from PIL import Image
+# TensorFlow and tf.keras
+import tensorflow as tf
+from tensorflow import keras
 
-from audio_format import AudioFormatter
+# Helper libraries
+import numpy as np
+import matplotlib.pyplot as plt
 
-image = AudioFormatter.format('audio_folder\idiomas-2.mp3')
-image.show()
+print(tf.__version__)
