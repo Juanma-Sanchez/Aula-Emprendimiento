@@ -26,9 +26,9 @@ Una vez obtenidas todas las imágenes, el objetivo se convierte en un problema d
 
 ## Resultados
 
-Empleamos 1500 de las imágenes previamente generadas (375 de cada sentimiento) para entrenar el modelo.
+Empleamos 1500 de las imágenes previamente generadas (375 de cada sentimiento) para entrenar el modelo. Ejecutando el script train_model.py generamos el fichero del modelo fonetic.h5, y su json fonetic.json. Lamentablemente esta ejecución indica que el porcentaje de acierto es de tan solo el 25.80%.
 
-Las 98 imágenes restantes que no hemos empleado en el entrenamiento nos sirven para comprobar el correcto funcionamiento del modelo.
+Las 98 imágenes restantes que no hemos empleado en el entrenamiento nos sirven para comprobar el correcto funcionamiento del modelo. Utilizando el script test_model.py realizamos dicha comprobación y lamentablemente obtenemos un porcentaje de acierto del 24.89%.
 
 Finalmente podemos analizar ficheros de audio .wav utilizando el script analyze_audio_file.py especificando el fichero de audio:
 ```
