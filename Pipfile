@@ -8,6 +8,7 @@ tensorflow
 keras
 matplotlib
 PIL
+h5py
 
 [dev-packages]
 
