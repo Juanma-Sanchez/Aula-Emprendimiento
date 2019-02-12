@@ -1,4 +1,4 @@
-### Aula de Emprendimiento
+# Aula de Emprendimiento
 
 Proyecto de Juan Manuel Sánchez Mateo
 
@@ -14,7 +14,7 @@ Utilizando el script get_max_audio_length.py, determinamos que la frecuencia de 
 
 Empleando el script de Python localizado en este repositorio, generate_data_sets.py, dividimos cada fichero de audio en tramas, obtenemos su representación en frecuencias mediante la Transformada Discreta de Fourier (https://en.wikipedia.org/wiki/Discrete_Fourier_transform) y tras una normalización, almacenamos la concatenación de expectros frecuenciales en imágenes del estilo:
 
-![Alt text](audio_as_img.png?raw=True "Ejemplo de imagen resultante")
+![Ejemplo de imagen resultante](audio_as_img.png)
 
 ## Resultados
 
@@ -27,4 +27,5 @@ Las muestras empleadas son de corta duración y representan un único sentimient
 De igual modo que se ha suprimido el offset del audio porque no nos aportaba información, sería posible realizar un filtrado en paso banda del audio para quedarse únicamente con las frecuencias que puede emitir una voz humana, eliminando el mayor ruido posible en el proceso.
 
 Un análisis sintáctico complementaría perfectamente al análisis fonético que hemos implementado en el proyecto, permitiendo analizar qué se dice y cómo.Ponderando resultados en función de la fiabilidad de cada análisis deberíamos poder obtener un resultado bastante confiable del sentimiento que transimte una grabación de voz.
-![Alt text](voice_analysis.png?raw=True "Análisis fonético-sintáctico")
+
+![Análisis fonético-sintáctico](voice_analysis.png)
