@@ -14,7 +14,7 @@ Utilizando el script get_max_audio_length.py, determinamos que la frecuencia de 
 
 Empleando el script de Python localizado en este repositorio, generate_data_sets.py, dividimos cada fichero de audio en tramas, obtenemos su representación en frecuencias mediante la Transformada Discreta de Fourier (https://en.wikipedia.org/wiki/Discrete_Fourier_transform) y tras una normalización, almacenamos la concatenación de expectros frecuenciales en imágenes del estilo:
 
-![Ejemplo de imagen resultante](audio_as_img.png)
+![Ejemplo de imagen resultante](audio_as_img.PNG)
 
 ## Resultados
 
