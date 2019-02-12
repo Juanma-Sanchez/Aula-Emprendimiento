@@ -13,7 +13,7 @@ train_images = []
 train_labels = []
 
 model = keras.Sequential([
-    keras.layers.Flatten(input_shape=(127, 570)),
+    keras.layers.Flatten(input_shape=(570, 65)),
     keras.layers.Dense(128, activation=tf.nn.relu),
     keras.layers.Dense(4, activation=tf.nn.softmax)
 ])

@@ -10,15 +10,16 @@ class AudioFormatter:
         audio_matrix = []
 
         for i in range(570):
-            transform = abs(fft(frames[128 * i:128 * i + 127]))
+            dft = abs(fft(frames[128 * i:128 * i + 127]))
+            transform = dft[0:64]
             transform[0] = 0
             transform = transform / max(transform)
             audio_matrix.append(transform)
 
-        audio_image = Image.new('L', (570, 127))
+        audio_image = Image.new('L', (570, 65))
 
         for i in range(570):
-            for j in range(127):
+            for j in range(65):
                 try:
                     audio_image.putpixel((i, j), int(255 * audio_matrix[i][j]))
                 except:
