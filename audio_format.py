@@ -1,21 +1,27 @@
-from pydub import AudioSegment
-from numpy import fft
+import wave
+
+from numpy.fft import fft
 from PIL import Image
-import numpy as np
 
 
 class AudioFormatter:
     @staticmethod
-    def format(filename=None) -> Image:
-        AudioSegment.ffmpeg = None
-        sound = AudioSegment.from_mp3(filename)
-        samples = sound.get_array_of_samples()
-        frames = [samples[i:i+127] for i in range(0, len(samples)//128, 128)]
-        data = np.zeros((128, len(frames), 1), dtype=np.uint8)
+    def format(frames=[]) -> Image:
+        audio_matrix = []
 
-        for i in range(0, len(frames)):
-            data[:, i] = fft()
+        for i in range(570):
+            transform = abs(fft(frames[128 * i:128 * i + 127]))
+            transform[0] = 0
+            transform = transform / max(transform)
+            audio_matrix.append(transform)
 
-        result = Image.fromarray(data)
+        audio_image = Image.new('L', (570, 127))
 
-        return result
+        for i in range(570):
+            for j in range(127):
+                try:
+                    audio_image.putpixel((i, j), int(255 * audio_matrix[i][j]))
+                except:
+                    audio_image.putpixel((i, j), 0)
+
+        return audio_image
