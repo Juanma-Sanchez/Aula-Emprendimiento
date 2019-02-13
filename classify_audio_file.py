@@ -35,7 +35,7 @@ for block_number in range(number_of_blocks):
     image_list.append(np.asarray(image))
 
 image_list = np.asarray(image_list)
-result = [0]*4
+result = [0]*len(FEELINGS)
 
 with CustomObjectScope({'GlorotUniform': glorot_uniform()}):
     model = load_model('fonetic.h5')
@@ -45,10 +45,8 @@ with CustomObjectScope({'GlorotUniform': glorot_uniform()}):
         for i in range(len(FEELINGS)):
             result[i] += prediction[i]
 
-    result = (100/number_of_blocks) * result
-
-    for i in range(4):
-        print('Percentage of', FEELINGS[i], result[0], '%')
+    for i in range(len(FEELINGS)):
+        print('Percentage of', FEELINGS[i], result[i]*100/number_of_blocks, '%')
 
 
 

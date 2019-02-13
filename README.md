@@ -47,15 +47,17 @@ Empleamos 1500 de las imágenes previamente generadas (375 de cada sentimiento) 
 
 Las 98 imágenes restantes que no hemos empleado en el entrenamiento nos sirven para comprobar el correcto funcionamiento del modelo. Utilizando el script test_model.py realizamos dicha comprobación y lamentablemente obtenemos un porcentaje de acierto del 24.89%.
 
-Finalmente podemos analizar ficheros de audio .wav con una frecuencia de muestreo de 24.414 Hz (se puede aplicar con otra frecuencia de muestreo pero los pixeles de las imágenes ya no se corresponderan con las mismas frecuencias que en los espectrogramas empleados para entrenar, es posible utilizar software externo como SoX para modificar la frecuencia de muestreo de un fichero) utilizando el script classify_audio_file.py especificando el fichero de audio:
+Finalmente podemos analizar ficheros de audio .wav con una frecuencia de muestreo de 24.414 Hz (se puede aplicar con otra frecuencia de muestreo pero los pixeles de las imágenes ya no se corresponderán con las mismas frecuencias que en los espectrogramas empleados para entrenar, es posible utilizar software externo como SoX para modificar la frecuencia de muestreo de un fichero) utilizando el script classify_audio_file.py especificando el fichero de audio:
 ```
 python classify_audio_file.py audio_example.wav
 ```
 
-Este script dividirá el audio en bloques de 72960 muestras (para obtener 570 tramas de 128 muestras, se añadirá silencio al final de ser necesario), y aplicará el modelo de clasificación a cada bloque para devolver la media de las probabilidades de cada sentimiento. El resultado de nuevo oscila en torno al 25% para cada sentimiento cuando se esperaba una clara dominancia del enfado.
+Este script dividirá el audio en bloques de 72960 muestras (para obtener 570 tramas de 128 muestras, se añadirá silencio al final de ser necesario), y aplicará el modelo de clasificación a cada bloque para devolver la media de las probabilidades de cada sentimiento. Sorprendentemente el resultado obtenido es un 100% enfadado, lo que contrasta con los resultados cuasi-aleatorios del entrenamiento y de la validación anterior. No obstante, aunque el audio tiene un marcado enfado, no se da de forma constante, sino que hay fragmentos en los que se podría considerar más neutral, por lo que no se puede considerar que haya tenido un éxito absoluto aunque sí mayoritario.
 ![Resultados de la clasificación de un fichero de audio](images/clasification_result.png)
 
 ## Conclusiones
+
+Aunque el resultado de la comprobación del fichero audio_example.wav haya sido mayoritariamente exitosa, es difícil de cuantificar y menos significativo que los obtenidos durante el entrenamiento y empleando el resto de las muestras originales. Por lo que la valoración general del modelo sería negativa.
 
 El hecho de que la probabilidad de acierto tienda al 25% por opción (particularmente durante el entrenamiento del modelo), nos indica que el sistema no aporta ninguna mejora frente a una suposición completamente aleatoria. Por tanto analizar los pesos que asigna el modelo no nos aporta ninguna información útil.
 
