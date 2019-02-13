@@ -4,13 +4,15 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+numpy
 tensorflow
 keras
-matplotlib
-PIL
+Pillow
 h5py
 
 [dev-packages]
+matplotlib
+scipy
 
 [requires]
 python_version = "3.6"
